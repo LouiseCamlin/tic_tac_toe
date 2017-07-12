@@ -26,10 +26,18 @@ class Controller extends React.Component {
 
 
   takeTurn(square) {
-    this.claimSquare(square);
-    //WIN?
-    this.changePlayer();
+    const currentPlayStatus = this.state.playStatus;
+    if(currentPlayStatus[square] == "") {
+
+      this.claimSquare(square);
+      // this.checkWin();
+      this.changePlayer();
+    }
   }
+  
+  // checkWin() {
+  //   const
+  // }
 
   changePlayer() {
     const player = this.state.currentPlayer
