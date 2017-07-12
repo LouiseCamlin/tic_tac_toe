@@ -11,7 +11,8 @@ class GameStatus extends React.Component {
     console.log(this.props);
     return(
       <div>
-        <GameBoard />
+        <h2 id="game-message">{this.props.currentPlayer.turn}</h2>
+        <GameBoard playStatus={this.props.playStatus}/>
       </div>
     );
   }
