@@ -30,14 +30,49 @@ class Controller extends React.Component {
     if(currentPlayStatus[square] == "") {
 
       this.claimSquare(square);
-      // this.checkWin();
+      this.checkWin(square);
       this.changePlayer();
     }
   }
-  
-  // checkWin() {
-  //   const
-  // }
+
+  checkWin(square) {
+    let keepGoing = true;
+    const currentPlayStatus = this.state.playStatus;
+
+
+
+    if((currentPlayStatus["a1"] == currentPlayStatus["b1"]) && (currentPlayStatus["a1"] == currentPlayStatus["c1"]) && (currentPlayStatus["a1"] !== "")) {
+      keepGoing = false;
+    }
+    if((currentPlayStatus["a2"] == currentPlayStatus["b2"]) && (currentPlayStatus["a2"] == currentPlayStatus["c2"]) && (currentPlayStatus["a2"] !== "")) {
+      keepGoing = false;
+    }
+    if((currentPlayStatus["a3"] == currentPlayStatus["b3"]) && (currentPlayStatus["a3"] == currentPlayStatus["c3"]) && (currentPlayStatus["a3"] !== "")) {
+      keepGoing = false;
+    }
+    if((currentPlayStatus["a1"] == currentPlayStatus["a2"]) && (currentPlayStatus["a1"] == currentPlayStatus["a3"]) && (currentPlayStatus["a1"] !== "")) {
+      keepGoing = false;
+    }
+    if((currentPlayStatus["b1"] == currentPlayStatus["b2"]) && (currentPlayStatus["b1"] == currentPlayStatus["b3"]) && (currentPlayStatus["b1"] !== "")) {
+      keepGoing = false;
+    }
+    if((currentPlayStatus["c1"] == currentPlayStatus["c2"]) && (currentPlayStatus["c1"] == currentPlayStatus["c3"]) && (currentPlayStatus["c1"] !== "")) {
+      keepGoing = false;
+    }
+    if((currentPlayStatus["a1"] == currentPlayStatus["b2"]) && (currentPlayStatus["a1"] == currentPlayStatus["c3"]) && (currentPlayStatus["a1"] !== "")) {
+      keepGoing = false;
+    }
+    if((currentPlayStatus["a3"] == currentPlayStatus["b2"]) && (currentPlayStatus["a3"] == currentPlayStatus["c1"]) && (currentPlayStatus["a3"] !== "")) {
+      keepGoing = false;
+    }
+
+
+
+
+    if(keepGoing == false) {
+      console.log("WIIIN");
+    }
+  }
 
   changePlayer() {
     const player = this.state.currentPlayer
