@@ -6,7 +6,7 @@ class GameBoard extends React.Component {
   }
 
   handleClick( position ){
-    this.props.claimSquare(position);
+    this.props.takeTurn(position);
   }
 
 

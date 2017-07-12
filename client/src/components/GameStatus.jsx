@@ -12,7 +12,7 @@ class GameStatus extends React.Component {
     return(
       <div>
         <h2 id="game-message">{this.props.currentPlayer.turn}</h2>
-        <GameBoard playStatus={this.props.playStatus} claimSquare={this.props.claimSquare}/>
+        <GameBoard playStatus={this.props.playStatus} takeTurn={this.props.takeTurn}/>
       </div>
     );
   }

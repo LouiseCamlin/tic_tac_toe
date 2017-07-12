@@ -21,10 +21,27 @@ class Controller extends React.Component {
       currentPlayer: {
         turn: "player1"
       }
-
     }
   }
 
+
+  takeTurn(square) {
+    this.claimSquare(square);
+    //WIN?
+    this.changePlayer();
+  }
+
+  changePlayer() {
+    const player = this.state.currentPlayer
+    if(player["turn"] == "player1") {
+      player["turn"] = "player2"
+      this.setState({ player })
+    }
+    else {
+      player["turn"] = "player1"
+      this.setState({ player })
+    }
+  }
 
   claimSquare(square) {
     const currentPlayStatus = this.state.playStatus;
@@ -36,7 +53,7 @@ class Controller extends React.Component {
     return (
       <div>
         <h1 id="game-title">Matt and Louise's Awesome Tic-Tac-Toe!</h1>
-        <GameStatus playStatus={this.state.playStatus} currentPlayer={this.state.currentPlayer} claimSquare={this.claimSquare.bind(this)}/>
+        <GameStatus playStatus={this.state.playStatus} currentPlayer={this.state.currentPlayer} takeTurn={this.takeTurn.bind(this)}/>
       </div>
     );
   }
