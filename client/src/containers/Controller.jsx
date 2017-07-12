@@ -36,8 +36,7 @@ class Controller extends React.Component {
     if(player["turn"] == "player1") {
       player["turn"] = "player2"
       this.setState({ player })
-    }
-    else {
+    } else {
       player["turn"] = "player1"
       this.setState({ player })
     }
@@ -45,8 +44,16 @@ class Controller extends React.Component {
 
   claimSquare(square) {
     const currentPlayStatus = this.state.playStatus;
-    currentPlayStatus[square] = "X";
-    this.setState({ currentPlayStatus });
+    const player = this.state.currentPlayer
+
+    if (player["turn"] == "player1") {
+      currentPlayStatus[square] = "X";
+      this.setState({ currentPlayStatus });
+    } else {
+      currentPlayStatus[square] = "O";
+      this.setState({ currentPlayStatus });
+    }
+
   }
 
   render(){
