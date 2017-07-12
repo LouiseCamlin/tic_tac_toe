@@ -25,11 +25,18 @@ class Controller extends React.Component {
     }
   }
 
+
+  claimSquare(square) {
+    const currentPlayStatus = this.state.playStatus;
+    currentPlayStatus[square] = "X";
+    this.setState({ currentPlayStatus });
+  }
+
   render(){
     return (
       <div>
         <h1 id="game-title">Matt and Louise's Awesome Tic-Tac-Toe!</h1>
-        <GameStatus playStatus={this.state.playStatus} currentPlayer={this.state.currentPlayer}/>
+        <GameStatus playStatus={this.state.playStatus} currentPlayer={this.state.currentPlayer} claimSquare={this.claimSquare.bind(this)}/>
       </div>
     );
   }
